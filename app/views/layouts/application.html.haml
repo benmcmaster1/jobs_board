@@ -1,0 +1,11 @@
+!!!
+%html
+%head
+  %title Ruby on Rails | Job Board
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+%body
+  - Category.all.each do |cat|
+    = link_to cat.name, jobs_path(category: cat.name)
+  = yield
